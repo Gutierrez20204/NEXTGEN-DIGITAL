@@ -1,0 +1,31 @@
+/* ===== SOLUCIÓN ALTERNATIVA PARA HERO BACKGROUND ===== */
+
+/* Intento 1: Ruta relativa desde CSS */
+.hero-section {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                url('../images/hero-bg.jpg') !important;
+}
+
+/* Intento 2: Ruta absoluta */
+.hero-section-alt1 {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                url('/images/hero-bg.jpg') !important;
+}
+
+/* Intento 3: Ruta desde raíz */
+.hero-section-alt2 {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                url('./images/hero-bg.jpg') !important;
+}
+
+/* Intento 4: Ruta directa */
+.hero-section-alt3 {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                url('images/hero-bg.jpg') !important;
+}
+
+/* Fallback con imagen base64 (temporal) */
+.hero-section-fallback {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                linear-gradient(45deg, #667eea, #764ba2) !important;
+}

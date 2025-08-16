@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Hero Background - NEXTGEN DIGITAL</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .test-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Prueba 1: Ruta relativa */
+        .hero-test1 {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                        url('images/hero-bg-test.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Prueba 2: Ruta desde CSS */
+        .hero-test2 {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                        url('../images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Prueba 3: Ruta absoluta */
+        .hero-test3 {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                        url('/images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Fallback */
+        .hero-fallback {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                        linear-gradient(45deg, #667eea, #764ba2);
+        }
+        
+        .test-info {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        
+        .status {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        
+        .test-buttons {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .test-btn {
+            display: block;
+            margin: 5px 0;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .test-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-buttons">
+        <button class="test-btn" onclick="testImage('images/hero-bg-test.jpg')">Prueba 1: hero-bg-test.jpg</button>
+        <button class="test-btn" onclick="testImage('images/hero-bg.jpg')">Prueba 2: hero-bg.jpg</button>
+        <button class="test-btn" onclick="testImage('../images/hero-bg-test.jpg')">Prueba 3: ../hero-bg-test.jpg</button>
+        <button class="test-btn" onclick="testImage('../images/hero-bg.jpg')">Prueba 4: ../hero-bg.jpg</button>
+        <button class="test-btn" onclick="setFallback()">Fallback</button>
+    </div>
+
+    <div class="test-hero hero-test1" id="testHero">
+        <div class="test-info">
+            <h1>Prueba de Imagen de Fondo</h1>
+            <p>Esta página prueba diferentes rutas para la imagen de fondo del hero.</p>
+            <div class="status" id="status">Verificando...</div>
+            <p>Ruta actual: <span id="currentPath">images/hero-bg.jpg</span></p>
+        </div>
+    </div>
+
+    <script>
+        function testImage(path) {
+            const hero = document.getElementById('testHero');
+            const status = document.getElementById('status');
+            const currentPath = document.getElementById('currentPath');
+            
+            // Cambiar la clase del hero
+            hero.className = 'test-hero';
+            hero.style.backgroundImage = `linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('${path}')`;
+            
+            currentPath.textContent = path;
+            status.textContent = 'Probando...';
+            status.className = 'status';
+            
+            // Probar si la imagen existe
+            const img = new Image();
+            img.onload = function() {
+                status.textContent = '✅ Imagen cargada correctamente';
+                status.className = 'status success';
+            };
+            img.onerror = function() {
+                status.textContent = '❌ Error al cargar la imagen';
+                status.className = 'status error';
+            };
+            img.src = path;
+        }
+        
+        function setFallback() {
+            const hero = document.getElementById('testHero');
+            const status = document.getElementById('status');
+            const currentPath = document.getElementById('currentPath');
+            
+            hero.className = 'test-hero hero-fallback';
+            currentPath.textContent = 'Fallback (gradiente)';
+            status.textContent = '✅ Fallback aplicado';
+            status.className = 'status success';
+        }
+        
+        // Verificar al cargar la página
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const hero = document.getElementById('testHero');
+                const computedStyle = window.getComputedStyle(hero);
+                const backgroundImage = computedStyle.backgroundImage;
+                
+                if (backgroundImage.includes('hero-bg.jpg')) {
+                    document.getElementById('status').textContent = '✅ Imagen detectada en CSS';
+                    document.getElementById('status').className = 'status success';
+                } else {
+                    document.getElementById('status').textContent = '❌ Imagen no detectada';
+                    document.getElementById('status').className = 'status error';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

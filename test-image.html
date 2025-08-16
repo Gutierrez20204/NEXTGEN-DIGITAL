@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Imagen Hero</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .test-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                        url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .test-content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .direct-image {
+            max-width: 300px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test de Imagen Hero</h1>
+    
+    <h2>1. Imagen directa:</h2>
+    <img src="images/hero-bg.jpg" alt="Hero Background" class="direct-image">
+    
+    <h2>2. Sección con imagen de fondo:</h2>
+    <div class="test-section">
+        <div class="test-content">
+            <h1>Innovación Digital</h1>
+            <p>Si puedes ver este texto sobre la imagen, la imagen de fondo está funcionando correctamente.</p>
+        </div>
+    </div>
+    
+    <h2>3. Información de la imagen:</h2>
+    <p>Ruta: images/hero-bg.jpg</p>
+    <p>Tamaño: 643KB</p>
+    <p>Si la imagen no se muestra arriba, hay un problema con la ruta o el archivo.</p>
+</body>
+</html> 

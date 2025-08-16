@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Rutas - NEXTGEN DIGITAL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-image {
+            max-width: 200px;
+            height: auto;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+        .success { border-color: #28a745; background: #d4edda; }
+        .error { border-color: #dc3545; background: #f8d7da; }
+        .status {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .success .status { color: #28a745; }
+        .error .status { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Prueba de Rutas de Imágenes</h1>
+        <p>Este archivo verifica que todas las rutas de imágenes funcionen correctamente.</p>
+        
+        <div class="test-item" id="hero-bg-test">
+            <h3>Imagen de Fondo Hero (hero-bg.jpg)</h3>
+            <img src="images/hero-bg.jpg" alt="Hero Background" class="test-image" onload="markSuccess(this)" onerror="markError(this)">
+            <p>Ruta: images/hero-bg.jpg</p>
+            <div class="status">Verificando...</div>
+        </div>
+
+        <div class="test-item" id="logo-test">
+            <h3>Logo (logo.png)</h3>
+            <img src="images/logo.png" alt="Logo" class="test-image" onload="markSuccess(this)" onerror="markError(this)">
+            <p>Ruta: images/logo.png</p>
+            <div class="status">Verificando...</div>
+        </div>
+
+        <div class="test-item" id="favicon-test">
+            <h3>Favicon (favicon.jpg)</h3>
+            <img src="images/favicon.jpg" alt="Favicon" class="test-image" onload="markSuccess(this)" onerror="markError(this)">
+            <p>Ruta: images/favicon.jpg</p>
+            <div class="status">Verificando...</div>
+        </div>
+
+        <div class="test-item" id="about-test">
+            <h3>Imagen About Us (about-us.png)</h3>
+            <img src="images/about-us.png" alt="About Us" class="test-image" onload="markSuccess(this)" onerror="markError(this)">
+            <p>Ruta: images/about-us.png</p>
+            <div class="status">Verificando...</div>
+        </div>
+
+        <div class="test-item" id="portfolio-test">
+            <h3>Imágenes de Portafolio</h3>
+            <img src="images/portfolio-1.png" alt="Portfolio 1" class="test-image" onload="markSuccess(this)" onerror="markError(this)">
+            <img src="images/portfolio-2.png" alt="Portfolio 2" class="test-image" onload="markSuccess(this)" onerror="markError(this)">
+            <img src="images/portfolio-3.png" alt="Portfolio 3" class="test-image" onload="markSuccess(this)" onerror="markError(this)">
+            <p>Rutas: portfolio-1.png, portfolio-2.png, portfolio-3.png</p>
+            <div class="status">Verificando...</div>
+        </div>
+    </div>
+
+    <script>
+        function markSuccess(img) {
+            const container = img.closest('.test-item');
+            container.classList.add('success');
+            container.classList.remove('error');
+            container.querySelector('.status').textContent = '✅ Cargada correctamente';
+        }
+
+        function markError(img) {
+            const container = img.closest('.test-item');
+            container.classList.add('error');
+            container.classList.remove('success');
+            container.querySelector('.status').textContent = '❌ Error al cargar';
+        }
+
+        // Verificar CSS
+        window.addEventListener('load', function() {
+            const heroSection = document.createElement('div');
+            heroSection.style.cssText = `
+                width: 100px;
+                height: 100px;
+                background: url('images/hero-bg.jpg');
+                background-size: cover;
+            `;
+            document.body.appendChild(heroSection);
+            
+            // Verificar si la imagen de fondo se carga
+            setTimeout(() => {
+                const computedStyle = window.getComputedStyle(heroSection);
+                const backgroundImage = computedStyle.backgroundImage;
+                
+                if (backgroundImage && backgroundImage !== 'none') {
+                    console.log('✅ CSS background-image funciona');
+                } else {
+                    console.log('❌ CSS background-image no funciona');
+                }
+                
+                document.body.removeChild(heroSection);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
