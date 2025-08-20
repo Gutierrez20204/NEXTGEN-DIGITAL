@@ -82,13 +82,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===== ANIMACIONES DE SCROLL =====
+    // ===== ANIMACIONES DE SCROLL OPTIMIZADAS =====
     function animateOnScroll() {
         const elements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
         
         elements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
+            const elementVisible = 100; // Reducido de 150 a 100 para activar antes
             
             if (elementTop < window.innerHeight - elementVisible) {
                 element.style.opacity = '1';
@@ -96,6 +96,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Ejecutar animaciones inmediatamente al cargar
+    document.addEventListener('DOMContentLoaded', function() {
+        // Asegurar que los elementos del hero estén visibles inmediatamente
+        const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-buttons');
+        heroElements.forEach(element => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+            element.style.visibility = 'visible';
+        });
+        
+        // Ejecutar animaciones de scroll inmediatamente
+        animateOnScroll();
+        
+        // Luego ejecutar en scroll
+        window.addEventListener('scroll', animateOnScroll);
+    });
 
     // ===== INTERSECTION OBSERVER PARA ANIMACIONES =====
     const observerOptions = {
@@ -336,6 +353,233 @@ document.addEventListener('DOMContentLoaded', function() {
         animateOnScroll();
         updateActiveNavLink();
     }, 500);
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('mainNavbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Portfolio filtering
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing portfolio filtering...');
+    
+    // Portfolio filtering functionality
+    const filterButtons = document.querySelectorAll('.filter-btn-gallery');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    
+    console.log('Found filter buttons:', filterButtons.length);
+    console.log('Found portfolio cards:', portfolioCards.length);
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            console.log('Filter button clicked:', this.getAttribute('data-filter'));
+            
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            const filter = this.getAttribute('data-filter');
+            console.log('Filtering by:', filter);
+
+            portfolioCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                console.log('Card category:', category);
+                
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0) scale(1)';
+                } else if (category && category.includes(filter)) {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0) scale(1)';
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px) scale(0.95)';
+                }
+            });
+
+            // Contar tarjetas visibles y ajustar el layout
+            const visibleCards = Array.from(portfolioCards).filter(card => 
+                card.style.display !== 'none'
+            );
+            console.log('Tarjetas visibles:', visibleCards.length);
+            
+            // Ajustar el layout según el número de tarjetas visibles
+            const portfolioGrid = document.querySelector('.portfolio-grid');
+            if (portfolioGrid) {
+                // Remover clases anteriores
+                portfolioGrid.classList.remove('two-cards');
+                
+                if (visibleCards.length === 2) {
+                    // Para 2 tarjetas, forzar que ocupen las primeras 2 columnas
+                    portfolioGrid.classList.add('two-cards');
+                    // Asegurar que las tarjetas visibles estén en las primeras posiciones
+                    visibleCards.forEach((card, index) => {
+                        if (index === 0) {
+                            card.style.gridColumn = '1';
+                        } else if (index === 1) {
+                            card.style.gridColumn = '2';
+                        }
+                    });
+                } else {
+                    // Para 1 o 3 tarjetas, resetear las posiciones
+                    portfolioCards.forEach(card => {
+                        card.style.gridColumn = '';
+                    });
+                }
+            }
+        });
+    });
+
+    // Portfolio modal functionality
+    const viewButtons = document.querySelectorAll('.portfolio-view-btn');
+    const modal = document.getElementById('projectModal');
+    const modalBody = document.getElementById('projectModalBody');
+    const modalLink = document.getElementById('projectModalLink');
+
+    // Inicializar el modal de Bootstrap
+    let projectModal;
+    if (modal) {
+        projectModal = new bootstrap.Modal(modal);
+    }
+
+    const projectData = {
+        1: {
+            title: 'Sistema de Gestión de Inventario',
+            description: 'Sistema completo de gestión empresarial que incluye control de inventario, cálculo de costos, y dashboard de métricas en tiempo real.',
+            features: ['Control de stock en tiempo real', 'Cálculo automático de costos', 'Reportes detallados', 'Interfaz intuitiva'],
+            technologies: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
+            image: 'images/portfolio-1.png',
+            link: '#'
+        },
+        2: {
+            title: 'Dashboard Area SST',
+            description: 'Sistema de gestión de seguridad laboral con dashboard interactivo para monitorear métricas de seguridad y salud en el trabajo.',
+            features: ['Métricas de seguridad', 'Alertas automáticas', 'Reportes de incidentes', 'Gráficos interactivos'],
+            technologies: ['React', 'Node.js', 'MongoDB', 'Chart.js'],
+            image: 'images/portfolio-2.png',
+            link: '#'
+        },
+        3: {
+            title: 'Menú Digital Interactivo',
+            description: 'Menú digital moderno para restaurantes con interfaz táctil, categorización de productos y sistema de pedidos integrado.',
+            features: ['Interfaz táctil', 'Categorización de productos', 'Sistema de pedidos', 'Diseño responsive'],
+            technologies: ['Vue.js', 'CSS3', 'JavaScript', 'PWA'],
+            image: 'images/portfolio-3.png',
+            link: '#'
+        }
+    };
+
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const projectId = this.getAttribute('data-project');
+            const project = projectData[projectId];
+
+            if (project && projectModal) {
+                modalBody.innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="${project.image}" alt="${project.title}" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>${project.title}</h4>
+                            <p class="text-muted">${project.description}</p>
+                            
+                            <h6 class="mt-3">Características:</h6>
+                            <ul class="list-unstyled">
+                                ${project.features.map(feature => `<li><i class="fas fa-check text-success me-2"></i>${feature}</li>`).join('')}
+                            </ul>
+                            
+                            <h6 class="mt-3">Tecnologías:</h6>
+                            <div class="tech-tags">
+                                ${project.technologies.map(tech => `<span class="badge bg-primary me-2">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                modalLink.href = project.link;
+                
+                // Mostrar el modal
+                projectModal.show();
+            }
+        });
+    });
+
+    // Hero section animations
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroButtons = document.querySelector('.hero-buttons');
+
+    if (heroTitle) {
+        heroTitle.style.opacity = '1';
+        heroTitle.style.transform = 'translateY(0)';
+        heroTitle.style.visibility = 'visible';
+    }
+
+    if (heroSubtitle) {
+        heroSubtitle.style.opacity = '1';
+        heroSubtitle.style.transform = 'translateY(0)';
+        heroSubtitle.style.visibility = 'visible';
+    }
+
+    if (heroButtons) {
+        heroButtons.style.opacity = '1';
+        heroButtons.style.transform = 'translateY(0)';
+        heroButtons.style.visibility = 'visible';
+    }
+});
+
+// Scroll to top button
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+});
+
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Preloader
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    }
 });
 
 // ===== UTILITY FUNCTIONS =====

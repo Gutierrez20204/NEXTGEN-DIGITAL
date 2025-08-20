@@ -33,7 +33,7 @@
             <!-- Logo y Brand -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <div class="logo-container">
-                    <img src="images/logo.png" alt="NextGen Digital" height="60" class="logo-img">
+                    <img src="images/logo.png" alt="NextGen Digital" height="50" class="logo-img">
                     <div class="logo-glow"></div>
                 </div>
                 <span class="brand-text ms-3 d-none d-lg-block">
@@ -59,7 +59,7 @@
 
             <!-- Menú de navegación -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
                         <a class="nav-link nav-item-custom" href="#hero">
                             <i class="fas fa-home nav-icon"></i>
@@ -84,10 +84,9 @@
                             <span>Nosotros</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-item-custom contact-nav" href="#contact">
-                            <i class="fas fa-envelope nav-icon"></i>
-                            <span>Contacto</span>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary contact-btn-nav" href="#contact">
+                            <i class="fas fa-envelope me-2"></i>Contacto
                         </a>
                     </li>
                 </ul>
@@ -97,85 +96,175 @@
 
     <section id="hero" class="hero-section d-flex align-items-center text-center text-white">
         <div class="container">
-            <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">Innovación Digital</h1>
-            <p class="lead mt-3 animate__animated animate__fadeInUp">Desarrollamos soluciones web a medida para impulsar tu crecimiento.</p>
-            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20adquirir%20un%20servicio." class="btn btn-primary btn-lg mt-4 animate__animated animate__zoomIn hero-contact-btn" target="_blank">Contáctanos Hoy</a>
+            <h1 class="display-3 fw-bold hero-title">
+                <span class="text-gradient">Innovación</span> 
+                <span class="text-gradient-secondary">Digital</span>
+            </h1>
+            <p class="lead mt-3 hero-subtitle">
+                <span class="highlight-text">Creamos el futuro digital</span> con soluciones web innovadoras que impulsan tu negocio al siguiente nivel.
+            </p>
+            <div class="hero-buttons mt-4">
+                <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20adquirir%20un%20servicio." class="btn btn-primary btn-lg hero-contact-btn me-3" target="_blank">
+                    <i class="fas fa-rocket me-2"></i>Impulsa tu Negocio
+                </a>
+                <a href="#portfolio" class="btn btn-outline-light btn-lg hero-portfolio-btn">
+                    <i class="fas fa-eye me-2"></i>Ver Nuestros Trabajos
+                </a>
+            </div>
         </div>
     </section>
 
-    <section id="services" class="py-5">
+    <section id="services" class="py-5 services-section">
         <div class="container">
-            <h2 class="text-center mb-5 display-4 fw-bold">Nuestros Servicios</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <div class="card h-100 shadow-sm service-card text-center fade-in-up">
-                        <div class="card-body">
+            <div class="services-header text-center mb-5">
+                <h2 class="display-4 fw-bold services-title">
+                    <span class="text-gradient">Nuestros</span> 
+                    <span class="text-gradient-secondary">Servicios</span>
+                </h2>
+                <p class="lead services-subtitle">Soluciones digitales innovadoras para impulsar tu negocio</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-card-modern" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-laptop-code service-icon"></i>
+                            <div class="service-icon-bg"></div>
+                        </div>
                             <div class="service-content">
-                                <i class="fas fa-laptop-code fa-4x text-primary mb-3 pulsing-icon"></i>
-                                <h5 class="card-title">Desarrollo Web Personalizado</h5>
-                                <p class="card-text">Creamos sitios web, aplicaciones modernas y escalables para cualquier necesidad.</p>
+                            <h4 class="service-title">Desarrollo Web Personalizado</h4>
+                            <p class="service-description">Creamos sitios web modernos, responsivos y escalables que se adaptan perfectamente a tus necesidades específicas.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Diseño responsive</li>
+                                <li><i class="fas fa-check"></i> Optimización SEO</li>
+                                <li><i class="fas fa-check"></i> Integración de sistemas</li>
+                            </ul>
                             </div>
-                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Desarrollo%20Web%20Personalizado." class="btn btn-outline-primary btn-sm" target="_blank">Contactar por WhatsApp</a>
+                        <div class="service-actions">
+                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Desarrollo%20Web%20Personalizado." class="btn btn-primary service-btn" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Solicitar Cotización
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm service-card text-center fade-in-up">
-                        <div class="card-body">
+
+                <!-- Servicio 2 -->
+                <div class="service-card-modern" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-boxes service-icon"></i>
+                            <div class="service-icon-bg"></div>
+                        </div>
                             <div class="service-content">
-                                <i class="fas fa-boxes fa-4x text-success mb-3 pulsing-icon"></i>
-                                <h5 class="card-title">Sistemas de Gestión de Inventario</h5>
-                                <p class="card-text">Optimiza tus operaciones con soluciones de inventario eficientes y fáciles de usar.</p>
+                            <h4 class="service-title">Sistemas de Gestión de Inventario</h4>
+                            <p class="service-description">Optimiza tus operaciones con sistemas inteligentes de inventario que te dan control total de tu stock.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Control en tiempo real</li>
+                                <li><i class="fas fa-check"></i> Alertas automáticas</li>
+                                <li><i class="fas fa-check"></i> Reportes detallados</li>
+                            </ul>
                             </div>
-                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Sistemas%20de%20Gestion%20de%20Inventario." class="btn btn-outline-primary btn-sm" target="_blank">Contactar por WhatsApp</a>
+                        <div class="service-actions">
+                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Sistemas%20de%20Gestion%20de%20Inventario." class="btn btn-primary service-btn" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Solicitar Cotización
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm service-card text-center fade-in-up">
-                        <div class="card-body">
+
+                <!-- Servicio 3 -->
+                <div class="service-card-modern" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-calculator service-icon"></i>
+                            <div class="service-icon-bg"></div>
+                        </div>
                             <div class="service-content">
-                                <i class="fas fa-calculator fa-4x text-info mb-3 pulsing-icon"></i>
-                                <h5 class="card-title">Calculadoras Digitales Interactivas</h5>
-                                <p class="card-text">Desarrollamos calculadoras personalizadas para tus clientes o procesos internos.</p>
+                            <h4 class="service-title">Calculadoras Digitales Interactivas</h4>
+                            <p class="service-description">Desarrollamos calculadoras personalizadas que simplifican procesos complejos para tus clientes.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Cálculos precisos</li>
+                                <li><i class="fas fa-check"></i> Interfaz intuitiva</li>
+                                <li><i class="fas fa-check"></i> Personalización total</li>
+                            </ul>
                             </div>
-                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Calculadoras%20Digitales%20Interactivas." class="btn btn-outline-primary btn-sm" target="_blank">Contactar por WhatsApp</a>
+                        <div class="service-actions">
+                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Calculadoras%20Digitales%20Interactivas." class="btn btn-primary service-btn" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Solicitar Cotización
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm service-card text-center fade-in-up">
-                        <div class="card-body">
+
+                <!-- Servicio 4 -->
+                <div class="service-card-modern" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-chart-line service-icon"></i>
+                            <div class="service-icon-bg"></div>
+                        </div>
                             <div class="service-content">
-                                <i class="fas fa-chart-line fa-4x text-warning mb-3 pulsing-icon"></i>
-                                <h5 class="card-title">Dashboards de Datos Personalizados</h5>
-                                <p class="card-text">Visualiza tus métricas clave con dashboards interactivos y fáciles de entender.</p>
+                            <h4 class="service-title">Dashboards de Datos Personalizados</h4>
+                            <p class="service-description">Visualiza tus métricas más importantes con dashboards interactivos y fáciles de interpretar.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Gráficos interactivos</li>
+                                <li><i class="fas fa-check"></i> Datos en tiempo real</li>
+                                <li><i class="fas fa-check"></i> Análisis avanzado</li>
+                            </ul>
                             </div>
-                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Dashboards%20de%20Datos%20Personalizados." class="btn btn-outline-primary btn-sm" target="_blank">Contactar por WhatsApp</a>
+                        <div class="service-actions">
+                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Dashboards%20de%20Datos%20Personalizados." class="btn btn-primary service-btn" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Solicitar Cotización
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm service-card text-center fade-in-up">
-                        <div class="card-body">
+
+                <!-- Servicio 5 -->
+                <div class="service-card-modern" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-utensils service-icon"></i>
+                            <div class="service-icon-bg"></div>
+                        </div>
                             <div class="service-content">
-                                <i class="fas fa-utensils fa-4x text-danger mb-3 pulsing-icon"></i>
-                                <h5 class="card-title">Menús Digitales para Restaurantes</h5>
-                                <p class="card-text">Moderniza tu negocio con menús interactivos, personalizables y accesibles.</p>
+                            <h4 class="service-title">Menús Digitales para Restaurantes</h4>
+                            <p class="service-description">Moderniza tu restaurante con menús digitales atractivos que mejoran la experiencia de tus clientes.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Diseño atractivo</li>
+                                <li><i class="fas fa-check"></i> Fácil actualización</li>
+                                <li><i class="fas fa-check"></i> Compatible móvil</li>
+                            </ul>
                             </div>
-                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Menus%20Digitales%20para%20Restaurantes." class="btn btn-outline-primary btn-sm" target="_blank">Contactar por WhatsApp</a>
+                        <div class="service-actions">
+                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Menus%20Digitales%20para%20Restaurantes." class="btn btn-primary service-btn" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Solicitar Cotización
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm service-card text-center fade-in-up">
-                        <div class="card-body">
+
+                <!-- Servicio 6 -->
+                <div class="service-card-modern" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-book-open service-icon"></i>
+                            <div class="service-icon-bg"></div>
+                        </div>
                             <div class="service-content">
-                                <i class="fas fa-book-open fa-4x text-secondary mb-3 pulsing-icon"></i>
-                                <h5 class="card-title">Catálogos de Productos en Línea</h5>
-                                <p class="card-text">Exhibe tus productos con catálogos digitales atractivos y funcionales.</p>
+                            <h4 class="service-title">Catálogos de Productos en Línea</h4>
+                            <p class="service-description">Exhibe tus productos de manera profesional con catálogos digitales que aumentan las ventas.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Galería de imágenes</li>
+                                <li><i class="fas fa-check"></i> Filtros avanzados</li>
+                                <li><i class="fas fa-check"></i> Integración e-commerce</li>
+                            </ul>
                             </div>
-                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Catalogos%20de%20Productos%20en%20Linea." class="btn btn-outline-primary btn-sm" target="_blank">Contactar por WhatsApp</a>
+                        <div class="service-actions">
+                            <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20el%20servicio%20de%20Catalogos%20de%20Productos%20en%20Linea." class="btn btn-primary service-btn" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Solicitar Cotización
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -185,58 +274,177 @@
 
     <section id="portfolio" class="bg-light py-5">
         <div class="container">
-            <h2 class="text-center mb-5 display-4 fw-bold">Nuestros Trabajos</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <div class="card portfolio-item shadow-sm fade-in-left">
-                        <img src="images/portfolio-1.png" class="card-img-top" alt="Proyecto de Desarrollo Web">
-                        <div class="card-body">
-                            <h5 class="card-title">Gestión de Inventario y Calculadora Digital</h5>
-                            <p class="card-text">Desarrollo de plataforma para inventario de productos, calculo de costos y ganancias.</p>
-                            <a href="https://jhonvega270523.github.io/InventarioLaurel/" class="btn btn-outline-primary btn-sm" target="_blank">Ver Proyecto</a>
+            <h2 class="text-center mb-5 display-4 fw-bold section-title">Nuestros Trabajos</h2>
+            
+            <!-- VERSIÓN GALERÍA MODERNA -->
+            <div class="portfolio-gallery">
+                <!-- Filtros de categorías -->
+                <div class="portfolio-filters-gallery text-center mb-5">
+                    <div class="filter-buttons">
+                        <button type="button" class="filter-btn-gallery active" data-filter="all">
+                            <i class="fas fa-th-large me-2"></i>Todos
+                        </button>
+                        <button type="button" class="filter-btn-gallery" data-filter="web">
+                            <i class="fas fa-laptop-code me-2"></i>Desarrollo Web
+                        </button>
+                        <button type="button" class="filter-btn-gallery" data-filter="dashboard">
+                            <i class="fas fa-chart-line me-2"></i>Dashboards
+                        </button>
+                        <button type="button" class="filter-btn-gallery" data-filter="menu">
+                            <i class="fas fa-utensils me-2"></i>Menús Digitales
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grid de proyectos -->
+                <div class="portfolio-grid">
+                    <!-- Proyecto 1 -->
+                    <div class="portfolio-card" data-category="web dashboard">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-card-front">
+                                <img src="images/portfolio-1.png" alt="Gestión de Inventario">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-overlay-content">
+                                        <h4>Gestión de Inventario</h4>
+                                        <p>Sistema completo de gestión empresarial</p>
+                                        <div class="portfolio-tags-gallery">
+                                            <span class="tag">Inventario</span>
+                                            <span class="tag">Calculadora</span>
+                                            <span class="tag">Dashboard</span>
+                                        </div>
+                                        <button class="btn btn-light btn-sm portfolio-view-btn" data-project="1">
+                                            <i class="fas fa-eye me-2"></i>Ver Detalles
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 2 -->
+                    <div class="portfolio-card" data-category="dashboard">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-card-front">
+                                <img src="images/portfolio-2.png" alt="Dashboard SST">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-overlay-content">
+                                        <h4>Dashboard Area SST</h4>
+                                        <p>Sistema de gestión de seguridad laboral</p>
+                                        <div class="portfolio-tags-gallery">
+                                            <span class="tag">SST</span>
+                                            <span class="tag">Seguridad</span>
+                                            <span class="tag">Analytics</span>
+                                        </div>
+                                        <button class="btn btn-light btn-sm portfolio-view-btn" data-project="2">
+                                            <i class="fas fa-eye me-2"></i>Ver Detalles
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 3 -->
+                    <div class="portfolio-card" data-category="menu">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-card-front">
+                                <img src="images/portfolio-3.png" alt="Menú Digital">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-overlay-content">
+                                        <h4>Tienda de Comidas</h4>
+                                        <p>Menú digital interactivo</p>
+                                        <div class="portfolio-tags-gallery">
+                                            <span class="tag">Restaurante</span>
+                                            <span class="tag">Menú Digital</span>
+                                            <span class="tag">E-commerce</span>
+                                        </div>
+                                        <button class="btn btn-light btn-sm portfolio-view-btn" data-project="3">
+                                            <i class="fas fa-eye me-2"></i>Ver Detalles
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card portfolio-item shadow-sm fade-in-up">
-                        <img src="images/portfolio-2.png" class="card-img-top" alt="Sistema de Inventario">
-                        <div class="card-body">
-                            <h5 class="card-title">Dashboard Area SST</h5>
-                            <p class="card-text">Implementación de un sistema de gestión de datos de accidentes laborales.</p>
-                            <a href="https://jhonvega270523.github.io/DashboardSST/" class="btn btn-outline-primary btn-sm" target="_blank">Ver Proyecto</a>
-                        </div>
+            </div>
+
+            <!-- Versión de acordeón eliminada para evitar duplicación -->
+        </div>
+
+        <!-- Modal para detalles del proyecto -->
+        <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="projectModalLabel">Detalles del Proyecto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card portfolio-item shadow-sm fade-in-right">
-                        <img src="images/portfolio-3.png" class="card-img-top" alt="Dashboard de Ventas">
-                        <div class="card-body">
-                            <h5 class="card-title">Tienda de Comidas y Jugos</h5>
-                            <p class="card-text">Desarrollo de menu digital de comidas y jugos.</p>
-                            <a href="https://jhonvega270523.github.io/SaborViral/" class="btn btn-outline-primary btn-sm" target="_blank">Ver Proyecto</a>
-                        </div>
+                    <div class="modal-body" id="projectModalBody">
+                        <!-- Contenido dinámico del modal -->
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-primary" id="projectModalLink" target="_blank">
+                            <i class="fas fa-external-link-alt me-2"></i>Ver Proyecto
+                        </a>
+                        <a href="https://wa.me/573003024889?text=Hola!%20Me%20interesa%20solicitar%20un%20proyecto%20similar%20al%20que%20vi%20en%20tu%20portafolio." class="btn btn-success" target="_blank">
+                            <i class="fas fa-paper-plane me-2"></i>Solicitar Similar
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-5">
+    <section id="about" class="py-5 about-section">
         <div class="container">
-            <h2 class="text-center mb-5 display-4 fw-bold">Sobre Nosotros</h2>
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="about-content-wrapper text-center text-lg-start fade-in-left">
-                        <img src="images/about-us.png" class="img-fluid rounded shadow-sm mb-4 about-image hover-scale" alt="Equipo de trabajo">
-                        <p class="text-justify">Somos un equipo apasionado de desarrolladores y diseñadores dedicados a transformar ideas en soluciones digitales impactantes. Nos especializamos en la creación de productos tecnológicos que no solo lucen bien, sino que también funcionan de manera impecable y resuelven problemas reales de negocio.</p>
-                        <p class="text-justify">Nuestra misión es ayudar a empresas como la tuya a prosperar en el entorno digital, ofreciendo servicios personalizados y un enfoque centrado en el cliente. Desde el concepto inicial hasta la implementación final, trabajamos de la mano contigo para asegurar que cada proyecto supere tus expectativas.</p>
+            <h2 class="text-center mb-5 display-4 fw-bold section-title">Sobre Nosotros</h2>
+            
+            <!-- Historia, Misión y Formulario en una línea -->
+            <div class="row mb-5">
+                <!-- Imagen a la izquierda -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="about-content-wrapper text-center fade-in-left">
+                        <div class="about-image-container">
+                            <img src="images/about-us.png" class="about-image" alt="Equipo de trabajo">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Texto en el centro -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="about-text-content fade-in-right">
+                        <div class="about-badge">
+                            <i class="fas fa-rocket me-2"></i>Innovación Digital
+                        </div>
+                        <h3 class="about-subtitle">Transformando Ideas en Realidad Digital</h3>
+                        <p class="about-description">Somos un equipo apasionado de desarrolladores y diseñadores dedicados a transformar ideas en soluciones digitales impactantes. Nos especializamos en la creación de productos tecnológicos que no solo lucen bien, sino que también funcionan de manera impecable y resuelven problemas reales de negocio.</p>
+                        <p class="about-description">Nuestra misión es ayudar a empresas como la tuya a prosperar en el entorno digital, ofreciendo servicios personalizados y un enfoque centrado en el cliente.</p>
+                        
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Desarrollo personalizado</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Soporte 24/7</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Garantía de calidad</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6">
-                    <div class="comment-form-wrapper fade-in-right">
-                        <h3 class="text-center mb-4">¡Tu Opinión es Importante!</h3>
-                        <p class="text-center mb-4">Ayúdanos a mejorar. Cuéntanos tu experiencia o déjanos un comentario.</p>
+                <!-- Formulario de comentarios a la derecha -->
+                <div class="col-lg-4">
+                    <div class="comment-form-wrapper fade-in-up">
+                        <div class="comment-form-header">
+                            <h3 class="comment-title">¡Tu Opinión es Importante!</h3>
+                            <p class="comment-subtitle">Ayúdanos a mejorar. Cuéntanos tu experiencia.</p>
+                        </div>
                         <form action="https://formspree.io/f/xdkdnjza" method="POST" class="comment-form-about">
                             <div class="mb-3">
                                 <label for="name-comment" class="form-label">Tu Nombre</label>
@@ -252,47 +460,190 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="comment" class="form-label">Tu Comentario / Observación</label>
-                                <textarea class="form-control" id="comment" name="Comentario" rows="4" placeholder="Escribe aquí tu opinión..." required></textarea>
+                                <label for="comment" class="form-label">Tu Comentario</label>
+                                <textarea class="form-control" id="comment" name="Comentario" rows="3" placeholder="Escribe aquí tu opinión..." required></textarea>
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-lg">Enviar Comentario</button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Comentario
+                                </button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valores y Experiencia -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="values-section text-center">
+                        <h3 class="values-title mb-5">Nuestros Valores</h3>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="value-card">
+                                    <div class="value-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <h4>Innovación</h4>
+                                    <p>Buscamos constantemente nuevas formas de resolver desafíos digitales con creatividad y tecnología de vanguardia.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="value-card">
+                                    <div class="value-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <h4>Confianza</h4>
+                                    <p>Construimos relaciones duraderas basadas en la transparencia, honestidad y resultados excepcionales.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="value-card">
+                                    <div class="value-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h4>Excelencia</h4>
+                                    <p>Nos esforzamos por la perfección en cada detalle, desde el diseño hasta la funcionalidad.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-5 bg-primary text-white">
+    <section id="contact" class="py-5 contact-section">
         <div class="container">
-            <h1 class="text-center mb-5 display-4 fw-bold animated-contact-title">Contáctanos</h1>
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6">
-                    <p class="text-center mb-4">¿Listo para llevar tu negocio al siguiente nivel? Envíanos un mensaje y te responderemos a la brevedad.</p>
-                    <form action="https://formspree.io/f/xdkdnjza" method="POST">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nombre Completo</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Tu Nombre" required>
+            <h1 class="text-center mb-5 display-4 fw-bold section-title">Contáctanos</h1>
+            
+            <div class="row g-5">
+                <!-- Información de Contacto -->
+                <div class="col-lg-4">
+                    <div class="contact-info-wrapper">
+                        <div class="contact-header mb-4">
+                            <h3 class="contact-title">¡Hablemos de tu Proyecto!</h3>
+                            <p class="contact-subtitle">Estamos aquí para ayudarte a hacer realidad tus ideas digitales.</p>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="tu.correo@ejemplo.com" required>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h5>WhatsApp</h5>
+                                    <p>+57 300 302 4889</p>
+                                    <a href="https://wa.me/573003024889?text=Hola!%20Estoy%20interesado%20en%20adquirir%20un%20servicio." class="contact-link" target="_blank">
+                                        Enviar Mensaje
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h5>Email</h5>
+                                    <p>info@nextgendigital.com</p>
+                                    <a href="mailto:info@nextgendigital.com" class="contact-link">
+                                        Enviar Email
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h5>Horarios de Atención</h5>
+                                    <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
+                                    <p>Sáb: 9:00 AM - 2:00 PM</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Teléfono (Opcional)</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="+Tu Teléfono">
+                        
+                        <div class="social-media-section mt-4">
+                            <h5>Síguenos en Redes Sociales</h5>
+                            <div class="social-links">
+                                <a href="#" class="social-link" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" title="TikTok">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="social-link" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto o consulta..." required></textarea>
+                    </div>
+                </div>
+                
+                <!-- Formulario de Contacto -->
+                <div class="col-lg-8">
+                    <div class="contact-form-wrapper">
+                        <div class="form-header mb-4">
+                            <h3>Envíanos tu Mensaje</h3>
+                            <p>Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas.</p>
                         </div>
-                        <input type="hidden" name="_next" value="http://127.0.0.1:5500/EMPRESA/index.html?reset=true">
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-light btn-lg">Enviar Mensaje</button>
-                        </div>
-                    </form>
+                        
+                        <form action="https://formspree.io/f/xdkdnjza" method="POST" class="contact-form">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Nombre Completo *</label>
+                                    <input type="text" class="form-control contact-input" id="name" name="name" placeholder="Tu nombre completo" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico *</label>
+                                    <input type="email" class="form-control contact-input" id="email" name="email" placeholder="tu.correo@ejemplo.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control contact-input" id="phone" name="phone" placeholder="+57 300 000 0000">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="service" class="form-label">Servicio de Interés</label>
+                                    <select class="form-select contact-input" id="service" name="service">
+                                        <option value="">Selecciona un servicio</option>
+                                        <option value="Desarrollo Web">Desarrollo Web</option>
+                                        <option value="Sistema de Inventario">Sistema de Inventario</option>
+                                        <option value="Calculadoras Digitales">Calculadoras Digitales</option>
+                                        <option value="Dashboard de Datos">Dashboard de Datos</option>
+                                        <option value="Menú Digital">Menú Digital</option>
+                                        <option value="Catálogo de Productos">Catálogo de Productos</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Mensaje *</label>
+                                <textarea class="form-control contact-input" id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto, necesidades específicas o cualquier consulta que tengas..." required></textarea>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="privacy" required>
+                                <label class="form-check-label" for="privacy">
+                                    Acepto que mis datos sean procesados según la <a href="#" class="privacy-link">política de privacidad</a>
+                                </label>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg contact-submit-btn">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

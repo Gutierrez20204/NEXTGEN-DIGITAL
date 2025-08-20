@@ -3,25 +3,25 @@
 /* Intento 1: Ruta relativa desde CSS */
 .hero-section {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
-                url('../images/hero-bg.jpg') !important;
+                url('../images/nuevo fondo.jpg') !important;
 }
 
 /* Intento 2: Ruta absoluta */
 .hero-section-alt1 {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
-                url('/images/hero-bg.jpg') !important;
+                url('/images/nuevo fondo.jpg') !important;
 }
 
 /* Intento 3: Ruta desde raíz */
 .hero-section-alt2 {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
-                url('./images/hero-bg.jpg') !important;
+                url('./images/nuevo fondo.jpg') !important;
 }
 
 /* Intento 4: Ruta directa */
 .hero-section-alt3 {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
-                url('images/hero-bg.jpg') !important;
+                url('images/nuevo fondo.jpg') !important;
 }
 
 /* Fallback con imagen base64 (temporal) */
