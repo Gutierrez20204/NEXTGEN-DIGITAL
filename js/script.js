@@ -72,6 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // ===== ANIMACIONES DE SCROLL =====
         animateOnScroll();
+
+        // Update circular progress ring on scroll-to-top button
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+        document.documentElement.style.setProperty('--scroll', progress + '%');
     };
 
     // Scroll to top functionality
@@ -131,6 +136,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Observar elementos con animaciones
     document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
         observer.observe(el);
+    });
+
+    // ===== 3D TILT EFFECT (lightweight) =====
+    const tiltElements = document.querySelectorAll('.tilt');
+    tiltElements.forEach(el => {
+        const maxTilt = 10; // degrees
+        const perspective = 800;
+        function handleMove(e) {
+            const rect = el.getBoundingClientRect();
+            const relX = e.clientX - rect.left;
+            const relY = e.clientY - rect.top;
+            const pctX = (relX / rect.width) * 2 - 1; // -1 .. 1
+            const pctY = (relY / rect.height) * 2 - 1; // -1 .. 1
+            const rotateY = pctX * maxTilt;
+            const rotateX = -pctY * maxTilt;
+            el.style.transform = `perspective(${perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            el.style.boxShadow = `${-rotateY * 1.2}px ${rotateX * 1.2}px 30px rgba(0,0,0,0.25)`;
+        }
+        function resetTilt() {
+            el.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
+            el.style.boxShadow = '';
+        }
+        el.addEventListener('mousemove', handleMove);
+        el.addEventListener('mouseleave', resetTilt);
+        el.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            if (!touch) return;
+            handleMove(touch);
+        }, { passive: true });
+        el.addEventListener('touchend', resetTilt);
     });
 
     // ===== EFECTOS HOVER MEJORADOS =====
