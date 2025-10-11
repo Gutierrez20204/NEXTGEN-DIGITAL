@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -279,6 +279,48 @@ html {
     position: relative;
     overflow: hidden;
 }
+
+/* Decorative hero orbs */
+.hero-orbs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+.hero-orbs .orb {
+    position: absolute;
+    filter: blur(30px);
+    opacity: 0.5;
+    border-radius: 50%;
+    animation: orbFloat 12s ease-in-out infinite;
+}
+.orb-1 { width: 220px; height: 220px; background: radial-gradient(circle at 30% 30%, rgba(0,123,255,.6), transparent 60%); top: 10%; left: 5%; animation-delay: 0s; }
+.orb-2 { width: 320px; height: 320px; background: radial-gradient(circle at 70% 30%, rgba(0,212,255,.5), transparent 60%); bottom: 5%; right: 10%; animation-delay: 2s; }
+.orb-3 { width: 180px; height: 180px; background: radial-gradient(circle at 50% 50%, rgba(255,107,107,.45), transparent 60%); top: 55%; left: 65%; animation-delay: 4s; }
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(0,-20px,0) scale(1.05); }
+}
+
+/* Wave divider */
+.hero-wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  z-index: 1;
+}
+.hero-wave-divider svg { display: block; width: 100%; height: 100%; }
+
+/* 3D tilt baseline */
+.tilt {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.tilt:active { transform: perspective(800px) rotateX(0) rotateY(0) scale(.98); }
 
 .hero-section::before {
     content: '';
@@ -1912,6 +1954,18 @@ footer::before {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Circular scroll progress ring around button */
+#scrollToTopBtn { position: fixed; }
+#scrollToTopBtn::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(#00d4ff var(--scroll, 0%), rgba(255,255,255,0.15) 0%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 0);
+          mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 0);
 }
 
 #scrollToTopBtn:hover {
