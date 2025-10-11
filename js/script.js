@@ -220,8 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===== TYPING EFFECT =====
-    function typeWriter(element, text, speed = 100) {
+    // ===== TYPING EFFECT MEJORADO =====
+    function typeWriter(element, text, speed = 100, cursor = true) {
         let i = 0;
         element.innerHTML = '';
         
@@ -230,6 +230,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.innerHTML += text.charAt(i);
                 i++;
                 setTimeout(type, speed);
+            } else if (cursor) {
+                // Añadir cursor parpadeante
+                element.innerHTML += '<span class="typing-cursor">|</span>';
             }
         }
         type();
@@ -240,9 +243,128 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroTitle) {
         const originalText = heroTitle.textContent;
         setTimeout(() => {
-            typeWriter(heroTitle, originalText, 150);
+            typeWriter(heroTitle, originalText, 120, true);
         }, 1000);
     }
+
+    // ===== EFECTOS DE PARALLAX MEJORADOS =====
+    function initParallax() {
+        const parallaxElements = document.querySelectorAll('[data-parallax]');
+        
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.parallax || 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+    }
+
+    // ===== EFECTOS DE MOUSE FOLLOW =====
+    function initMouseFollow() {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        cursor.style.cssText = `
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #007bff, #00d4ff);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            opacity: 0.8;
+        `;
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+
+        // Efecto hover en elementos interactivos
+        const interactiveElements = document.querySelectorAll('a, button, .service-card, .portfolio-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2)';
+                cursor.style.background = 'linear-gradient(45deg, #ff6b6b, #ffa500)';
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.background = 'linear-gradient(45deg, #007bff, #00d4ff)';
+            });
+        });
+    }
+
+    // ===== EFECTOS DE SCROLL REVEAL =====
+    function initScrollReveal() {
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            revealObserver.observe(el);
+        });
+    }
+
+    // ===== EFECTOS DE PARTÍCULAS INTERACTIVAS =====
+    function createParticles() {
+        const particleContainer = document.createElement('div');
+        particleContainer.className = 'particle-container';
+        particleContainer.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        document.body.appendChild(particleContainer);
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: rgba(0, 123, 255, 0.6);
+                border-radius: 50%;
+                pointer-events: none;
+                animation: particleFloat 8s linear infinite;
+            `;
+            
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            
+            particleContainer.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        setInterval(createParticle, 200);
+    }
+
+    // ===== INICIALIZAR NUEVAS FUNCIONALIDADES =====
+    initParallax();
+    initMouseFollow();
+    initScrollReveal();
+    createParticles();
 
     // ===== WHATSAPP BUTTON PULSE EFFECT =====
     const whatsappBtn = document.querySelector('.whatsapp-float');
